@@ -53,8 +53,6 @@ jobs:
       - name: Compute changed modules
         id: modules
         uses: ./.github/actions/compute_changed_modules
-        with:
-          namespace: component
 
   checkstyle:
     name: Check code style

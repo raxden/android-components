@@ -20,7 +20,7 @@ publishPlatform {
         name = "Ángel Gómez",
         email = "raxden.dev@gmail.com",
     )
-    coordinates = Coordinates.default.copy(artifactId = "components-bom")
+    coordinates = Coordinates.default.copy(artifactId = "component-bom")
 }
 
 javaPlatform {

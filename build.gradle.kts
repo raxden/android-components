@@ -1,4 +1,5 @@
 import com.adarshr.gradle.testlogger.theme.ThemeType
+import extension.getLibraryArtifactIds
 import extension.getProperty
 import extension.getPublicationName
 import java.time.Duration
@@ -64,10 +65,28 @@ subprojects {
         theme = ThemeType.MOCHA
         slowThreshold = 3000
     }
+}
 
-    configurations.all {
-        exclude(group = "com.raxdenstudios", module = "component-permission")
-        exclude(group = "com.raxdenstudios", module = "component-rating")
+// Prevent duplicate library artifacts on the classpath.
+//
+// This project produces all commons-* modules locally (projects.libraries.*). Transitive
+// dependencies may, however, pull the same libraries as *published* artifacts from Maven
+// Central (com.raxdenstudios:commons-*). Excluding those published coordinates guarantees
+// that only the local source modules are used, avoiding version conflicts and duplicate
+// classes. Project dependencies are unaffected because their module name is the Gradle
+// project name (e.g. "core"), not the published artifactId (e.g. "commons-core").
+//
+// The list is derived dynamically from each library module's publish configuration, so new
+// modules are picked up automatically. It must run inside projectsEvaluated so every module's
+// publication is already configured before reading its artifactId.
+gradle.projectsEvaluated {
+    val libraryArtifactIds = getLibraryArtifactIds()
+    subprojects.forEach { module ->
+        module.configurations.all {
+            libraryArtifactIds.forEach { artifactId ->
+                exclude(group = "com.raxdenstudios", module = artifactId)
+            }
+        }
     }
 }
 

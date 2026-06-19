@@ -10,7 +10,7 @@ import com.raxdenstudios.platform.core.util.IntentFactory
 import com.raxdenstudios.platform.core.util.IntentType
 import com.raxdenstudios.platform.ui.Component
 import com.raxdenstudios.platform.ui.ScreenState
-//import com.raxdenstudios.platform.ui.composable.BottomSheet
+import com.raxdenstudios.platform.ui.composable.Dialog
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
@@ -46,16 +46,16 @@ class RequestPermissionComponent(
     override fun Content(uiState: RequestPermissionComponentUIState) {
         uiState.model ?: return
 
-//        BottomSheet.Simple(
-//            title = uiState.model.reason,
-//            message = uiState.model.reasonDescription,
-//            confirmButton = uiState.model.acceptLabel to {
-//                onAction(RequestPermissionComponentAction.OnRationaleAccepted)
-//            },
-//            dismissButton = uiState.model.deniedLabel to {
-//                onAction(RequestPermissionComponentAction.OnRationaleDismissed)
-//            }
-//        )
+        Dialog.Simple(
+            title = uiState.model.reason,
+            message = uiState.model.reasonDescription,
+            confirmButton = uiState.model.acceptLabel to {
+                onAction(RequestPermissionComponentAction.OnRationaleAccepted)
+            },
+            dismissButton = uiState.model.deniedLabel to {
+                onAction(RequestPermissionComponentAction.OnRationaleDismissed)
+            }
+        )
     }
 
     override suspend fun handleUIEvent(uiEvent: RequestPermissionComponentUIEvent) {

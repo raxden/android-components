@@ -2,11 +2,13 @@ package com.raxdenstudios.component.rating.ui
 
 import androidx.lifecycle.ViewModel
 import com.raxdenstudios.commons.core.ext.onSuccess
-import com.raxdenstudios.platform.ui.ActionDelegate
-import com.raxdenstudios.platform.ui.EventDelegate
 import com.raxdenstudios.component.rating.domain.ShouldShowRatingDialogUseCase
 import com.raxdenstudios.component.rating.domain.UpdateRatingStateUseCase
+import com.raxdenstudios.platform.ui.ActionDelegate
+import com.raxdenstudios.platform.ui.EventDelegate
 import com.raxdenstudios.platform.ui.safeLaunch
+import kotlinx.coroutines.delay
+import kotlin.time.Duration.Companion.milliseconds
 
 typealias RatingComponentEventDelegate = EventDelegate<RatingComponentUIEvent>
 typealias RatingComponentActionDelegate = ActionDelegate<RatingComponentAction>
@@ -27,7 +29,7 @@ class RatingComponentViewModel(
 
     override fun onAction(action: RatingComponentAction) {
         when (action) {
-            is RatingComponentAction.RateApp -> rateApp()
+            is RatingComponentAction.RateApp -> rateApp(action.value)
             is RatingComponentAction.DismissRating -> dismissRating()
         }
     }
@@ -41,18 +43,25 @@ class RatingComponentViewModel(
             }
     }
 
-    private fun rateApp() = safeLaunch {
+    private fun rateApp(value: Int) = safeLaunch {
+        updateRating(value)
+        delay(500.milliseconds)
+
         updateRatingStateUseCase.markAsRated()
             .onSuccess {
                 hideRating()
-                emitEvent(RatingComponentUIEvent.OpenPlayStore)
+                if (value == FIVE_STARS) {
+                    emitEvent(RatingComponentUIEvent.OpenPlayStore)
+                }
             }
     }
 
     private fun dismissRating() = safeLaunch {
         updateRatingStateUseCase.markAsDismissed()
-            .onSuccess {
-                hideRating()
-            }
+            .onSuccess { hideRating() }
+    }
+
+    companion object {
+        const val FIVE_STARS = 5
     }
 }

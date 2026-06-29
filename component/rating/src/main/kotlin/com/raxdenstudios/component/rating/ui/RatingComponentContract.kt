@@ -11,10 +11,11 @@ sealed class RatingComponentUIEvent : UIEvent {
 
 @Immutable
 data class RatingComponentUIState(
+    val selectedRating: Int = 0,
     val isVisible: Boolean = false,
 ) : UIState()
 
 sealed class RatingComponentAction : Action {
-    data object RateApp : RatingComponentAction()
+    data class RateApp(val value: Int) : RatingComponentAction()
     data object DismissRating : RatingComponentAction()
 }

@@ -37,7 +37,7 @@ class RequestPermissionComponent(
         source: LifecycleOwner,
         event: Lifecycle.Event
     ) {
-        if (event == Lifecycle.Event.ON_START) {
+        if (event == Lifecycle.Event.ON_CREATE) {
             onAction(RequestPermissionComponentAction.OnPermissionRequested(arguments.permission))
         }
     }

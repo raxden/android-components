@@ -50,11 +50,11 @@ class RatingComponent(
                 onDismissRequest = { onAction(RatingComponentAction.DismissRating) },
             ) {
                 Label.TitleLarge(
-                    StringResource.ResourceId(R.string.rating_dialog_title).toText()
+                    StringResource.ResourceId(R.string.rating_dialog_title)
                 )
                 Spacer.Vertical.Small()
                 Label.BodyMedium(
-                    StringResource.ResourceId(R.string.rating_dialog_message).toText()
+                    StringResource.ResourceId(R.string.rating_dialog_message)
                 )
                 Spacer.Vertical.Custom(xLarge)
                 StarRatingRow(
@@ -99,4 +99,3 @@ private fun StarRatingRow(
         }
     }
 }
-

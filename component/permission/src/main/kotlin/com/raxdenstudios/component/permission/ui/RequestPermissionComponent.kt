@@ -45,6 +45,7 @@ class RequestPermissionComponent(
     @Composable
     override fun Content(uiState: RequestPermissionComponentUIState) {
         uiState.model ?: return
+        val dismissRationale = { onAction(RequestPermissionComponentAction.OnRationaleDismissed) }
 
         Dialog.Simple(
             title = uiState.model.reason,
@@ -52,9 +53,8 @@ class RequestPermissionComponent(
             confirmButton = uiState.model.acceptLabel to {
                 onAction(RequestPermissionComponentAction.OnRationaleAccepted)
             },
-            dismissButton = uiState.model.deniedLabel to {
-                onAction(RequestPermissionComponentAction.OnRationaleDismissed)
-            }
+            dismissButton = uiState.model.deniedLabel to dismissRationale,
+            onDismissRequest = dismissRationale,
         )
     }
 

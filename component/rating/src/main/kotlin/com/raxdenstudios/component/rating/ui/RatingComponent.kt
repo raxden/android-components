@@ -34,14 +34,17 @@ class RatingComponent(
 ) : Component<RatingComponentUIState, RatingComponentUIEvent>(
     modifier = modifier,
     screenState = screenState,
-    viewModel = viewModel
-), KoinComponent {
+    viewModel = viewModel,
+),
+    KoinComponent {
 
     private val intentFactory: IntentFactory by inject()
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    override fun Content(uiState: RatingComponentUIState) {
+    override fun Content(
+        uiState: RatingComponentUIState,
+    ) {
         if (uiState.isVisible) {
             BottomSheet.Simple(
                 primaryButton = StringResource.ResourceId(R.string.rating_dialog_later) to {
@@ -50,11 +53,11 @@ class RatingComponent(
                 onDismissRequest = { onAction(RatingComponentAction.DismissRating) },
             ) {
                 Label.TitleLarge(
-                    StringResource.ResourceId(R.string.rating_dialog_title)
+                    StringResource.ResourceId(R.string.rating_dialog_title),
                 )
                 Spacer.Vertical.Small()
                 Label.BodyMedium(
-                    StringResource.ResourceId(R.string.rating_dialog_message)
+                    StringResource.ResourceId(R.string.rating_dialog_message),
                 )
                 Spacer.Vertical.Custom(xLarge)
                 StarRatingRow(
@@ -66,7 +69,9 @@ class RatingComponent(
         }
     }
 
-    override suspend fun handleUIEvent(uiEvent: RatingComponentUIEvent) {
+    override suspend fun handleUIEvent(
+        uiEvent: RatingComponentUIEvent,
+    ) {
         when (uiEvent) {
             is RatingComponentUIEvent.OpenPlayStore -> {
                 val intent = intentFactory.build(IntentType.PlayStore)
@@ -75,6 +80,8 @@ class RatingComponent(
         }
     }
 }
+
+private const val MAX_STARS = 5
 
 @Composable
 private fun StarRatingRow(
@@ -87,7 +94,7 @@ private fun StarRatingRow(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
-        for (index in 1..5) {
+        for (index in 1..MAX_STARS) {
             IconButton(onClick = { onRatingSelected(index) }) {
                 Icon(
                     imageVector = if (index <= rating) Icons.Filled.Star else Icons.Outlined.StarOutline,

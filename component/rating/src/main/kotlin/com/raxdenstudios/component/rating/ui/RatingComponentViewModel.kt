@@ -27,7 +27,9 @@ class RatingComponentViewModel(
         checkRatingDialog()
     }
 
-    override fun onAction(action: RatingComponentAction) {
+    override fun onAction(
+        action: RatingComponentAction,
+    ) {
         when (action) {
             is RatingComponentAction.RateApp -> rateApp(action.value)
             is RatingComponentAction.DismissRating -> dismissRating()
@@ -43,7 +45,9 @@ class RatingComponentViewModel(
             }
     }
 
-    private fun rateApp(value: Int) = safeLaunch {
+    private fun rateApp(
+        value: Int,
+    ) = safeLaunch {
         updateRating(value)
         delay(500.milliseconds)
 

@@ -6,16 +6,21 @@ import com.raxdenstudios.platform.ui.StateDelegateImpl
 interface RatingComponentStateDelegate : StateDelegate<RatingComponentUIState> {
     fun showRating()
     fun hideRating()
-    fun updateRating(rating: Int)
+    fun updateRating(
+        rating: Int,
+    )
 }
 
-class RatingComponentStateDelegateImpl : StateDelegateImpl<RatingComponentUIState>(),
+class RatingComponentStateDelegateImpl :
+    StateDelegateImpl<RatingComponentUIState>(),
     RatingComponentStateDelegate {
 
     override val initialUIState: RatingComponentUIState
         get() = RatingComponentUIState()
 
-    override fun updateRating(rating: Int) {
+    override fun updateRating(
+        rating: Int,
+    ) {
         updateState { value ->
             value.copy(selectedRating = rating)
         }

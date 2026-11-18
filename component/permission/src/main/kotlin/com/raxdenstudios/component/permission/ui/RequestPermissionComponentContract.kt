@@ -9,8 +9,12 @@ import com.raxdenstudios.platform.ui.UIState
 
 sealed class RequestPermissionComponentUIEvent : UIEvent {
     data object NavigateToSettings : RequestPermissionComponentUIEvent()
-    data class Granted(val permission: Permission) : RequestPermissionComponentUIEvent()
-    data class Denied(val permission: Permission) : RequestPermissionComponentUIEvent()
+    data class Granted(
+        val permission: Permission,
+    ) : RequestPermissionComponentUIEvent()
+    data class Denied(
+        val permission: Permission,
+    ) : RequestPermissionComponentUIEvent()
 }
 
 @Immutable
@@ -19,8 +23,9 @@ data class RequestPermissionComponentUIState(
 ) : UIState()
 
 sealed class RequestPermissionComponentAction : Action {
-    data class OnPermissionRequested(val permission: Permission) :
-        RequestPermissionComponentAction()
+    data class OnPermissionRequested(
+        val permission: Permission,
+    ) : RequestPermissionComponentAction()
 
     data object OnRationaleAccepted : RequestPermissionComponentAction()
     data object OnRationaleDismissed : RequestPermissionComponentAction()

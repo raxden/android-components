@@ -20,20 +20,27 @@ class RequestPermissionComponentViewModel(
     private val requestPermissionUseCase: RequestPermissionUseCase,
     private val stateDelegate: RequestPermissionComponentStateDelegate,
     private val eventDelegate: RequestPermissionComponentEventDelegate,
-) : ViewModel(), RequestPermissionComponentStateDelegate by stateDelegate,
+) : ViewModel(),
+    RequestPermissionComponentStateDelegate by stateDelegate,
     RequestPermissionComponentEventDelegate by eventDelegate,
     RequestPermissionComponentActionDelegate {
 
-    override fun onAction(action: RequestPermissionComponentAction) {
+    override fun onAction(
+        action: RequestPermissionComponentAction,
+    ) {
         when (action) {
             RequestPermissionComponentAction.OnRationaleAccepted -> handleRationaleAccepted()
+
             RequestPermissionComponentAction.OnRationaleDismissed -> handleRationaleDismissed()
+
             is RequestPermissionComponentAction.OnPermissionRequested ->
                 handlePermissionRequested(action.permission)
         }
     }
 
-    private fun handlePermissionRequested(permission: Permission) {
+    private fun handlePermissionRequested(
+        permission: Permission,
+    ) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             requestPermission(permission)
         }
@@ -49,7 +56,9 @@ class RequestPermissionComponentViewModel(
     }
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    private fun requestPermission(permission: Permission) = safeLaunch {
+    private fun requestPermission(
+        permission: Permission,
+    ) = safeLaunch {
         requestPermissionUseCase(RequestPermissionUseCase.Params(permission)).onCoSuccess { permissionResult ->
             when (permissionResult) {
                 is PermissionResult.Denied -> handlePermissionDenied(permissionResult.permission)
@@ -59,15 +68,21 @@ class RequestPermissionComponentViewModel(
         }
     }
 
-    private fun handlePermissionDenied(permission: Permission) {
+    private fun handlePermissionDenied(
+        permission: Permission,
+    ) {
         emitEvent(RequestPermissionComponentUIEvent.Denied(permission))
     }
 
-    private fun handlePermissionGranted(permission: Permission) {
+    private fun handlePermissionGranted(
+        permission: Permission,
+    ) {
         emitEvent(RequestPermissionComponentUIEvent.Granted(permission))
     }
 
-    private fun handlePermissionRationale(permission: Permission) {
+    private fun handlePermissionRationale(
+        permission: Permission,
+    ) {
         val dialog = requestPermissionComponentMapper.toModel(permission)
         showDialog(dialog)
     }

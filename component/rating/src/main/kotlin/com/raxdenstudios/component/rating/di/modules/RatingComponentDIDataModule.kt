@@ -1,6 +1,5 @@
 package com.raxdenstudios.component.rating.di.modules
 
-import com.raxdenstudios.platform.core.di.DIModule
 import com.raxdenstudios.component.rating.data.RatingLocalDataSource
 import com.raxdenstudios.component.rating.data.RatingLocalDataSourceImpl
 import com.raxdenstudios.component.rating.data.RatingRepository
@@ -9,6 +8,7 @@ import com.raxdenstudios.component.rating.domain.ShouldShowRatingDialogUseCase
 import com.raxdenstudios.component.rating.domain.ShouldShowRatingDialogUseCaseImpl
 import com.raxdenstudios.component.rating.domain.UpdateRatingStateUseCase
 import com.raxdenstudios.component.rating.domain.UpdateRatingStateUseCaseImpl
+import com.raxdenstudios.platform.core.di.DIModule
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.singleOf

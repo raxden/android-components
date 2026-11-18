@@ -16,6 +16,8 @@ data class RatingComponentUIState(
 ) : UIState()
 
 sealed class RatingComponentAction : Action {
-    data class RateApp(val value: Int) : RatingComponentAction()
+    data class RateApp(
+        val value: Int,
+    ) : RatingComponentAction()
     data object DismissRating : RatingComponentAction()
 }

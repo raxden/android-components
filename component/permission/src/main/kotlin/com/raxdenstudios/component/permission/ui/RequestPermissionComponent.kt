@@ -24,8 +24,10 @@ class RequestPermissionComponent(
     modifier = modifier,
     onUIEvent = onUIEvent,
     screenState = screenState,
-    viewModel = viewModel
-), KoinComponent, LifecycleEventObserver {
+    viewModel = viewModel,
+),
+    KoinComponent,
+    LifecycleEventObserver {
 
     private val intentFactory: IntentFactory by inject()
 
@@ -35,7 +37,7 @@ class RequestPermissionComponent(
 
     override fun onStateChanged(
         source: LifecycleOwner,
-        event: Lifecycle.Event
+        event: Lifecycle.Event,
     ) {
         if (event == Lifecycle.Event.ON_CREATE) {
             onAction(RequestPermissionComponentAction.OnPermissionRequested(arguments.permission))
@@ -43,7 +45,9 @@ class RequestPermissionComponent(
     }
 
     @Composable
-    override fun Content(uiState: RequestPermissionComponentUIState) {
+    override fun Content(
+        uiState: RequestPermissionComponentUIState,
+    ) {
         uiState.model ?: return
         val dismissRationale = { onAction(RequestPermissionComponentAction.OnRationaleDismissed) }
 
@@ -58,7 +62,9 @@ class RequestPermissionComponent(
         )
     }
 
-    override suspend fun handleUIEvent(uiEvent: RequestPermissionComponentUIEvent) {
+    override suspend fun handleUIEvent(
+        uiEvent: RequestPermissionComponentUIEvent,
+    ) {
         when (uiEvent) {
             RequestPermissionComponentUIEvent.NavigateToSettings -> {
                 val intent = intentFactory.build(IntentType.AppSettings)
@@ -66,6 +72,7 @@ class RequestPermissionComponent(
             }
 
             is RequestPermissionComponentUIEvent.Denied -> Unit
+
             is RequestPermissionComponentUIEvent.Granted -> Unit
         }
     }

@@ -4,9 +4,10 @@ import com.raxdenstudios.component.permission.ui.model.RequestPermissionModel
 import com.raxdenstudios.platform.ui.StateDelegate
 import com.raxdenstudios.platform.ui.StateDelegateImpl
 
-interface RequestPermissionComponentStateDelegate :
-    StateDelegate<RequestPermissionComponentUIState> {
-    fun showDialog(model: RequestPermissionModel)
+interface RequestPermissionComponentStateDelegate : StateDelegate<RequestPermissionComponentUIState> {
+    fun showDialog(
+        model: RequestPermissionModel,
+    )
     fun hideDialog()
 }
 
@@ -17,7 +18,9 @@ class RequestPermissionComponentStateDelegateImpl :
     override val initialUIState: RequestPermissionComponentUIState
         get() = RequestPermissionComponentUIState()
 
-    override fun showDialog(model: RequestPermissionModel) {
+    override fun showDialog(
+        model: RequestPermissionModel,
+    ) {
         updateState { value ->
             value.copy(model = model)
         }

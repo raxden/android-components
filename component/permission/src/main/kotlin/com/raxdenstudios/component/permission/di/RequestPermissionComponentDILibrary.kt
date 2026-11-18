@@ -10,10 +10,9 @@ class RequestPermissionComponentDILibrary : FeatureDILibrary() {
         // empty block
     }
 
-    override fun getDataModules(): List<DIModule> = listOf(
-    )
+    override fun getDataModules(): List<DIModule> = listOf()
 
     override fun getUIModules(): List<DIModule> = listOf(
-        RequestPermissionComponentUIDIModule()
+        RequestPermissionComponentUIDIModule(),
     )
 }

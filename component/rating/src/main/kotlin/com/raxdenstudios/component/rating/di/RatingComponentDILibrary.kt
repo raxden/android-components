@@ -12,10 +12,10 @@ class RatingComponentDILibrary : FeatureDILibrary() {
     }
 
     override fun getDataModules(): List<DIModule> = listOf(
-        RatingComponentDIDataModule()
+        RatingComponentDIDataModule(),
     )
 
     override fun getUIModules(): List<DIModule> = listOf(
-        RatingComponentDIUIModule()
+        RatingComponentDIUIModule(),
     )
 }

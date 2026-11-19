@@ -4,4 +4,12 @@
     <string name="component_permission_notifications_description">Permite que esta aplicación te envíe notificaciones sobre actualizaciones e información importante.</string>
     <string name="component_permission_notifications_accept">Permitir</string>
     <string name="component_permission_notifications_denied">Ahora no</string>
+    <string name="component_permission_location_title">Permitir acceso a la ubicación</string>
+    <string name="component_permission_location_description">El acceso a la ubicación es necesario para mostrar contenido cerca de ti. Puedes activarlo en la configuración de la aplicación.</string>
+    <string name="component_permission_location_accept">Abrir ajustes</string>
+    <string name="component_permission_location_denied">Ahora no</string>
+    <string name="component_permission_generic_title">Permiso necesario</string>
+    <string name="component_permission_generic_description">Esta función necesita un permiso que está desactivado. Puedes activarlo en la configuración de la aplicación.</string>
+    <string name="component_permission_generic_accept">Abrir ajustes</string>
+    <string name="component_permission_generic_denied">Ahora no</string>
 </resources>

@@ -4,4 +4,12 @@
     <string name="component_permission_notifications_description">Permet que aquesta aplicació t\'enviï notificacions sobre actualitzacions i informació important.</string>
     <string name="component_permission_notifications_accept">Permetre</string>
     <string name="component_permission_notifications_denied">Ara no</string>
+    <string name="component_permission_location_title">Permet l\'accés a la ubicació</string>
+    <string name="component_permission_location_description">Cal l\'accés a la ubicació per mostrar contingut a prop teu. Pots activar-lo a la configuració de l\'aplicació.</string>
+    <string name="component_permission_location_accept">Obrir configuració</string>
+    <string name="component_permission_location_denied">Ara no</string>
+    <string name="component_permission_generic_title">Cal un permís</string>
+    <string name="component_permission_generic_description">Aquesta funció necessita un permís que ara està desactivat. El pots activar a la configuració de l\'aplicació.</string>
+    <string name="component_permission_generic_accept">Obrir configuració</string>
+    <string name="component_permission_generic_denied">Ara no</string>
 </resources>

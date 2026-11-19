@@ -4,4 +4,12 @@
     <string name="component_permission_notifications_description">Allow this app to send you notifications about important updates and information.</string>
     <string name="component_permission_notifications_accept">Allow</string>
     <string name="component_permission_notifications_denied">Not now</string>
+    <string name="component_permission_location_title">Allow location access</string>
+    <string name="component_permission_location_description">Location access is needed to show content near you. You can enable it in the app settings.</string>
+    <string name="component_permission_location_accept">Open settings</string>
+    <string name="component_permission_location_denied">Not now</string>
+    <string name="component_permission_generic_title">Permission required</string>
+    <string name="component_permission_generic_description">This feature needs a permission that is currently disabled. You can enable it in the app settings.</string>
+    <string name="component_permission_generic_accept">Open settings</string>
+    <string name="component_permission_generic_denied">Not now</string>
 </resources>

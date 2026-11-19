@@ -4,4 +4,12 @@
     <string name="component_permission_notifications_description">Разрешите этому приложению отправлять вам уведомления о важных обновлениях и информации.</string>
     <string name="component_permission_notifications_accept">Разрешить</string>
     <string name="component_permission_notifications_denied">Не сейчас</string>
+    <string name="component_permission_location_title">Разрешите доступ к геопозиции</string>
+    <string name="component_permission_location_description">Доступ к геопозиции нужен, чтобы показывать контент рядом с вами. Включить его можно в настройках приложения.</string>
+    <string name="component_permission_location_accept">Открыть настройки</string>
+    <string name="component_permission_location_denied">Не сейчас</string>
+    <string name="component_permission_generic_title">Требуется разрешение</string>
+    <string name="component_permission_generic_description">Для этой функции нужно разрешение, которое сейчас отключено. Включить его можно в настройках приложения.</string>
+    <string name="component_permission_generic_accept">Открыть настройки</string>
+    <string name="component_permission_generic_denied">Не сейчас</string>
 </resources>

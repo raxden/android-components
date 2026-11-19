@@ -4,4 +4,12 @@
     <string name="component_permission_notifications_description">Erlauben Sie dieser App, Ihnen Benachrichtigungen über wichtige Updates und Informationen zu senden.</string>
     <string name="component_permission_notifications_accept">Erlauben</string>
     <string name="component_permission_notifications_denied">Später</string>
+    <string name="component_permission_location_title">Standortzugriff erlauben</string>
+    <string name="component_permission_location_description">Der Standortzugriff wird benötigt, um Inhalte in Ihrer Nähe anzuzeigen. Sie können ihn in den App-Einstellungen aktivieren.</string>
+    <string name="component_permission_location_accept">Einstellungen öffnen</string>
+    <string name="component_permission_location_denied">Später</string>
+    <string name="component_permission_generic_title">Berechtigung erforderlich</string>
+    <string name="component_permission_generic_description">Diese Funktion benötigt eine Berechtigung, die derzeit deaktiviert ist. Sie können sie in den App-Einstellungen aktivieren.</string>
+    <string name="component_permission_generic_accept">Einstellungen öffnen</string>
+    <string name="component_permission_generic_denied">Später</string>
 </resources>

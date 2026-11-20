@@ -48,4 +48,11 @@ dependencies {
     implementationBundle(libs.bundles.android.compose)
     implementationBundle(libs.bundles.room)
     implementationBundle(libs.bundles.koin)
+
+    testImplementation(libs.commons.core)
+    testImplementation(libs.commons.coroutines.test)
+    testImplementation(libs.truth)
+    testImplementation(libs.mockk.android)
+    testImplementation(libs.turbine)
+    testImplementation(libs.robolectric)
 }

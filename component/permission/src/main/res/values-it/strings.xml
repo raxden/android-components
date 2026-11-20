@@ -4,4 +4,12 @@
     <string name="component_permission_notifications_description">Consenti a questa app di inviarti notifiche su aggiornamenti e informazioni importanti.</string>
     <string name="component_permission_notifications_accept">Consenti</string>
     <string name="component_permission_notifications_denied">Non ora</string>
+    <string name="component_permission_location_title">Consenti l\'accesso alla posizione</string>
+    <string name="component_permission_location_description">L\'accesso alla posizione serve per mostrare contenuti vicino a te. Puoi attivarlo nelle impostazioni dell\'app.</string>
+    <string name="component_permission_location_accept">Apri impostazioni</string>
+    <string name="component_permission_location_denied">Non ora</string>
+    <string name="component_permission_generic_title">Autorizzazione richiesta</string>
+    <string name="component_permission_generic_description">Questa funzione richiede un\'autorizzazione attualmente disattivata. Puoi attivarla nelle impostazioni dell\'app.</string>
+    <string name="component_permission_generic_accept">Apri impostazioni</string>
+    <string name="component_permission_generic_denied">Non ora</string>
 </resources>

@@ -19,31 +19,41 @@ class RequestPermissionComponentMapperImpl : RequestPermissionComponentMapper {
     override fun toModel(
         permission: Permission,
     ) = when (permission) {
-        Permission.AccessCoarseLocation -> TODO()
+        Permission.AccessCoarseLocation,
+        Permission.AccessFineLocation,
+        -> locationModel()
 
-        Permission.AccessFineLocation -> TODO()
+        Permission.PostNotifications -> notificationsModel()
 
-        Permission.CallPhone -> TODO()
-
-        Permission.Camera -> TODO()
-
-        is Permission.Other -> TODO()
-
-        Permission.PostNotifications -> RequestPermissionModel(
-            reason = StringResource.ResourceId(R.string.component_permission_notifications_title),
-            reasonDescription = StringResource.ResourceId(R.string.component_permission_notifications_description),
-            acceptLabel = StringResource.ResourceId(R.string.component_permission_notifications_accept),
-            deniedLabel = StringResource.ResourceId(R.string.component_permission_notifications_denied),
-        )
-
-        Permission.ReadContacts -> TODO()
-
-        Permission.ReadExternalStorage -> TODO()
-
-        Permission.RecordAudio -> TODO()
-
-        Permission.WriteContacts -> TODO()
-
-        Permission.WriteExternalStorage -> TODO()
+        Permission.CallPhone,
+        Permission.Camera,
+        is Permission.Other,
+        Permission.ReadContacts,
+        Permission.ReadExternalStorage,
+        Permission.RecordAudio,
+        Permission.WriteContacts,
+        Permission.WriteExternalStorage,
+        -> genericModel()
     }
+
+    private fun locationModel() = RequestPermissionModel(
+        reason = StringResource.ResourceId(R.string.component_permission_location_title),
+        reasonDescription = StringResource.ResourceId(R.string.component_permission_location_description),
+        acceptLabel = StringResource.ResourceId(R.string.component_permission_location_accept),
+        deniedLabel = StringResource.ResourceId(R.string.component_permission_location_denied),
+    )
+
+    private fun notificationsModel() = RequestPermissionModel(
+        reason = StringResource.ResourceId(R.string.component_permission_notifications_title),
+        reasonDescription = StringResource.ResourceId(R.string.component_permission_notifications_description),
+        acceptLabel = StringResource.ResourceId(R.string.component_permission_notifications_accept),
+        deniedLabel = StringResource.ResourceId(R.string.component_permission_notifications_denied),
+    )
+
+    private fun genericModel() = RequestPermissionModel(
+        reason = StringResource.ResourceId(R.string.component_permission_generic_title),
+        reasonDescription = StringResource.ResourceId(R.string.component_permission_generic_description),
+        acceptLabel = StringResource.ResourceId(R.string.component_permission_generic_accept),
+        deniedLabel = StringResource.ResourceId(R.string.component_permission_generic_denied),
+    )
 }

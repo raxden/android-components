@@ -1,7 +1,7 @@
 package com.raxdenstudios.component.permission.ui.model
 
 import androidx.compose.runtime.Immutable
-import com.raxdenstudios.platform.ui.model.StringResource
+import com.raxdenstudios.commons.android.compose.model.StringResource
 
 @Immutable
 class RequestPermissionModel(

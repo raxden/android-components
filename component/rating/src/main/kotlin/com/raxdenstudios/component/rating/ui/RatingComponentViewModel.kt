@@ -1,12 +1,12 @@
 package com.raxdenstudios.component.rating.ui
 
 import androidx.lifecycle.ViewModel
+import com.raxdenstudios.commons.android.ext.safeLaunch
 import com.raxdenstudios.commons.core.ext.onSuccess
 import com.raxdenstudios.component.rating.domain.ShouldShowRatingDialogUseCase
 import com.raxdenstudios.component.rating.domain.UpdateRatingStateUseCase
 import com.raxdenstudios.platform.ui.ActionDelegate
 import com.raxdenstudios.platform.ui.EventDelegate
-import com.raxdenstudios.platform.ui.safeLaunch
 import kotlinx.coroutines.delay
 import kotlin.time.Duration.Companion.milliseconds
 

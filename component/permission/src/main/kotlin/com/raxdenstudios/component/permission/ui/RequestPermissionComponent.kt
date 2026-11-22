@@ -5,9 +5,9 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
+import com.raxdenstudios.commons.android.intent.IntentFactory
+import com.raxdenstudios.commons.android.intent.IntentType
 import com.raxdenstudios.commons.permissions.model.Permission
-import com.raxdenstudios.platform.core.util.IntentFactory
-import com.raxdenstudios.platform.core.util.IntentType
 import com.raxdenstudios.platform.ui.Component
 import com.raxdenstudios.platform.ui.ScreenState
 import com.raxdenstudios.platform.ui.composable.Dialog

@@ -3,14 +3,14 @@ package com.raxdenstudios.component.permission.ui
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
+import com.raxdenstudios.commons.android.ext.safeLaunch
 import com.raxdenstudios.commons.coroutines.ext.onCoSuccess
 import com.raxdenstudios.commons.permissions.model.Permission
+import com.raxdenstudios.commons.permissions.model.PermissionResult
 import com.raxdenstudios.component.permission.ui.mapper.RequestPermissionComponentMapper
-import com.raxdenstudios.platform.device.domain.model.PermissionResult
 import com.raxdenstudios.platform.device.domain.usecase.RequestPermissionUseCase
 import com.raxdenstudios.platform.ui.ActionDelegate
 import com.raxdenstudios.platform.ui.EventDelegate
-import com.raxdenstudios.platform.ui.safeLaunch
 
 typealias RequestPermissionComponentEventDelegate = EventDelegate<RequestPermissionComponentUIEvent>
 typealias RequestPermissionComponentActionDelegate = ActionDelegate<RequestPermissionComponentAction>

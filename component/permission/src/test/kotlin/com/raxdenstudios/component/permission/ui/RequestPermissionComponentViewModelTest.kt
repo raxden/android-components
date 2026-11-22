@@ -2,16 +2,16 @@ package com.raxdenstudios.component.permission.ui
 
 import app.cash.turbine.test
 import com.google.common.truth.Truth.assertThat
+import com.raxdenstudios.commons.android.compose.model.StringResource
 import com.raxdenstudios.commons.core.Answer
 import com.raxdenstudios.commons.coroutines.test.rules.MainDispatcherRule
 import com.raxdenstudios.commons.permissions.model.Permission
+import com.raxdenstudios.commons.permissions.model.PermissionResult
 import com.raxdenstudios.component.permission.R
 import com.raxdenstudios.component.permission.ui.mapper.RequestPermissionComponentMapper
 import com.raxdenstudios.component.permission.ui.model.RequestPermissionModel
-import com.raxdenstudios.platform.device.domain.model.PermissionResult
 import com.raxdenstudios.platform.device.domain.usecase.RequestPermissionUseCase
 import com.raxdenstudios.platform.ui.EventDelegateImpl
-import com.raxdenstudios.platform.ui.model.StringResource
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk

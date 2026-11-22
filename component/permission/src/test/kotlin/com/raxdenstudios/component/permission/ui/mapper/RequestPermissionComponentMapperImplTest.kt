@@ -1,10 +1,10 @@
 package com.raxdenstudios.component.permission.ui.mapper
 
 import com.google.common.truth.Truth.assertThat
+import com.raxdenstudios.commons.android.compose.model.StringResource
 import com.raxdenstudios.commons.permissions.model.Permission
 import com.raxdenstudios.component.permission.R
 import com.raxdenstudios.component.permission.ui.model.RequestPermissionModel
-import com.raxdenstudios.platform.ui.model.StringResource
 import org.junit.Test
 
 internal class RequestPermissionComponentMapperImplTest {

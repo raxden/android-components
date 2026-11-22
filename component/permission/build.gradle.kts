@@ -35,6 +35,7 @@ dependencies {
     implementation(libs.platform.ui)
 
     implementation(platform(libs.commons.bom))
+    implementation(libs.commons.android)
     implementation(libs.commons.android.compose)
     implementation(libs.commons.coroutines)
     implementation(libs.commons.permissions)
